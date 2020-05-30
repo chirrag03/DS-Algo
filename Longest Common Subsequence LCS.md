@@ -29,9 +29,9 @@ Explanation: There is no such common subsequence, so the result is 0.
 ```
 
 > **Constraints:**  
-* 1 <= text1.length <= 1000  
-* 1 <= text2.length <= 1000  
-* The input strings consist of lowercase English characters only.
+> 1 <= text1.length <= 1000  
+> 1 <= text2.length <= 1000  
+> The input strings consist of lowercase English characters only.
  
 
 ```java
