@@ -28,7 +28,7 @@ minStack.top();    // return 0
 minStack.getMin(); // return -2
 ```
 
-> Constraints: Methods pop, top and getMin operations will always be called on non-empty stacks.
+> **Constraints:** Methods pop, top and getMin operations will always be called on non-empty stacks.
  
 
 ```java
