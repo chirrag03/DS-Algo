@@ -18,7 +18,10 @@ Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
 
 > Note: The length of path between two nodes is represented by the number of edges between them.
 
- 
+ ### Solutioning:
+
+Dia of tree = max of all possible dia i.e. max{d1, d2, d3....dn}  
+where possible diameter, d = treating each node as root taking sum of left and rt tree
 
 ```java
 public class TreeNode {
@@ -68,9 +71,9 @@ class OptimizedSolution {
 }
 ```
 
-```
+```java
 class Solution {
-    
+
     public int height(TreeNode root){
         if(root == null){
             return 0;
