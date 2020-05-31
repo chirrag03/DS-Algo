@@ -1,4 +1,4 @@
-## Count Subarray Sum Equals K
+## Subarray Sum Equals K
 
 Given an array of integers and an integer k, you need to find the total number of continuous subarrays whose sum equals to k.
 
@@ -22,7 +22,7 @@ Output: 2
 ```java
 class Solution {
 
-    public int subarraySum(int[] nums, int k) {
+    public int countSubarraySumEqualsK(int[] nums, int k) {
         
         // Map to store number of subarrays starting from index zero having particular value of sum. 
         Map<Integer, Integer> map = new HashMap<>();
@@ -50,3 +50,37 @@ class Solution {
 
 }
 ```  
+
+**Variation :**
+Given an array nums and a target value k, find the maximum length of a subarray that sums to k. If there isn't one, return 0 instead.
+
+
+```java
+class Solution {
+    public int maxSubarrayLenWithSumEqualsK(int[] nums, int k) {
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        int largestSubarraySize = 0;
+        int sum = 0;
+        
+        for(int i=0;i<nums.length;i++){
+            sum += nums[i];
+            
+            if(sum == k){
+                largestSubarraySize = Math.max(largestSubarraySize, i + 1);
+            }
+            
+            if(map.containsKey(sum-k)){
+                largestSubarraySize = Math.max(largestSubarraySize, i - map.get(sum-k)); 
+            }
+            
+            //We never update the existing index value present for a sum key
+            //Only insert the current index if it was not present in the map for this sum
+            map.put(sum, map.getOrDefault(sum, i));
+        }
+        
+        return largestSubarraySize;
+    }
+}
+```
