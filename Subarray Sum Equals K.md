@@ -51,7 +51,7 @@ class Solution {
 }
 ```  
 
-**Variation :**
+**Variation : Max size subarray with sum k**  
 Given an array nums and a target value k, find the maximum length of a subarray that sums to k. If there isn't one, return 0 instead.
 
 
@@ -59,11 +59,13 @@ Given an array nums and a target value k, find the maximum length of a subarray 
 class Solution {
     public int maxSubarrayLenWithSumEqualsK(int[] nums, int k) {
         
+        // Map to store number of subarrays starting from index zero having particular value of sum. 
         Map<Integer, Integer> map = new HashMap<>();
         
-        int largestSubarraySize = 0;
+        //Running sum
         int sum = 0;
         
+        int largestSubarraySize = 0;       
         for(int i=0;i<nums.length;i++){
             sum += nums[i];
             
