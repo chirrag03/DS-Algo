@@ -38,15 +38,13 @@ class Item{
 }
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-                        
+
         Map<Integer, Integer> map = new HashMap<>();
-        
-        PriorityQueue<Item> q = new PriorityQueue<>((i1, i2) -> i1.freq - i2.freq);
-        
         for(int i=0;i<nums.length;i++){
             map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);       
         }
         
+        PriorityQueue<Item> q = new PriorityQueue<>((i1, i2) -> i1.freq - i2.freq);
         for(Entry<Integer, Integer> e: map.entrySet()){
             int data = e.getKey();
             int freq = e.getValue();
