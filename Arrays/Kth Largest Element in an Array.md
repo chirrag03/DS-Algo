@@ -41,5 +41,5 @@ class Solution {
     }
 }
 ```  
-### Time Complexity: O(Nlogk) 
-### Space Complexity: O(k) 
+**Time Complexity:** O(Nlogk) 
+**Space Complexity:** O(k) 
