@@ -112,12 +112,14 @@ class Solution {
         boolean isRow = false;
         boolean isCol = false;
         
+        //Do we need to set first column as 0
         for(int i=0;i<m;i++){
              if(matrix[i][0] == 0){
                  isCol = true;
              }
         }
 
+        //Do we need to set first row as 0
         for(int j=0;j<n;j++){
              if(matrix[0][j] == 0){
                  isRow = true;
@@ -134,28 +136,21 @@ class Solution {
         }
         
         for(int i=1;i<m;i++){
-             if(matrix[i][0] == 0){
-                 for(int j=0;j<n;j++){
-                     matrix[i][j] = 0;
-                }
-             }
+             for(int j=1;j<n;j++){
+                 if(matrix[i][0] == 0 || matrix[0][j] == 0){
+                    matrix[i][j] = 0;   
+                 }
+            }
         }
         
-        for(int j=1;j<n;j++){
-             if(matrix[0][j] == 0){
-                 for(int i=0;i<m;i++){
-                     matrix[i][j] = 0;
-                }
-             }
-        }
-        
+        //Set first row as 0
         if(isRow){
             for(int j=0;j<n;j++){
                  matrix[0][j] = 0;
             }
         }
         
-        
+        //Set first column as 0
         if(isCol){
             for(int i=0;i<m;i++){
                  matrix[i][0] = 0;
