@@ -33,3 +33,29 @@ class Solution {
     }
 }
 ```  
+
+**Alternate Soltution: Similar to dutch flag problem**  
+```java
+class Solution {
+    public void moveZeroes(int[] nums) {
+
+        int nextNonZeroIndex = 0;
+        
+        int currIndex = 0;
+        while(currIndex < nums.length){
+            if(nums[currIndex] != 0){
+                int temp = nums[nextNonZeroIndex];
+                nums[nextNonZeroIndex] = nums[currIndex];
+                nums[currIndex] = temp;
+                
+                nextNonZeroIndex++;
+                currIndex++;
+            }else{
+                currIndex++;
+            }
+        }
+        
+        
+    }
+}
+```  
