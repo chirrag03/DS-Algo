@@ -42,14 +42,12 @@ class Solution {
             List<Integer> smallPermutation = smallerOutput.get(i);
             
             for(int j=0;j<smallPermutation.size();j++){
-                List<Integer> nextPermutation = new ArrayList<>();
-                nextPermutation.addAll(smallPermutation);
+                List<Integer> nextPermutation = new ArrayList<>(smallPermutation);
                 nextPermutation.add(j, nums[start]);
                 finalOutput.add(nextPermutation);
             }
             
-            List<Integer> nextPermutation = new ArrayList<>();
-            nextPermutation.addAll(smallPermutation);
+            List<Integer> nextPermutation = new ArrayList<>(smallPermutation);
             nextPermutation.add(nums[start]);
             finalOutput.add(nextPermutation);
         }
@@ -59,3 +57,5 @@ class Solution {
     
 }
 ```  
+**Time Complexity:** Better than O(N × N!) and a bit slower than O(N!)   
+**Space Complexity:** O(N × N!)
