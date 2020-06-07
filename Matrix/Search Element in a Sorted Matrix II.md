@@ -52,5 +52,5 @@ class Solution {
     }
 }
 ```  
-**Time Complexity:** O(max(m,n))   
+**Time Complexity:** O(m + n)   
 **Space Complexity:** O(1) 
