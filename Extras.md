@@ -7,6 +7,14 @@ Approach 1: Use a separate boolean 2D array to store if the cell is visited or n
 Approach 2: Use a Set to store the id of only the visited cells in row major form i.e.  visited.add(xCoord*n + yCoord)
 ```
 
+### Lexicographical order:
+```
+Compare corresponding characters of the two strings from left to right.  
+The first character where the two strings differ determines which string comes first.  
+All uppercase letters come before lower case letters. If two letters are the same case, then alphabetic order is used to compare them.  
+If two strings contain the same characters in the same positions, then the shortest string comes first.
+```
+
  ### HashSet:
 
 ```java
