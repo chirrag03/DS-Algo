@@ -93,6 +93,7 @@ class Solution {
 }
 ```  
 <b>Time Complexity:</b> O(M*N) In the worst case where it contains only the O cells on the board, we would traverse each cell.  
+
 <b>Space Complexity:</b> O(M*N) For the visited set. And the maximum depth of recursive calls would be M*N as in the worst scenario mentioned in the time complexity.
 
 
