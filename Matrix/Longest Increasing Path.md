@@ -145,7 +145,7 @@ class Solution {
         return max;
     }
     
-    //To check if we can move onto this cell i.e. it is within the board premises as well as unvisited 
+    //To check if we can move onto this cell i.e. it is within the board premises
     private boolean isSafe(int i, int j, int m , int n){
         if(i >= 0 && i < m && j >= 0 && j < n){
             return true;
