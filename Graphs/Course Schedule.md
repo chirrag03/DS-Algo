@@ -82,6 +82,8 @@ class Solution {
             Integer adjVertex = adjVertices.get(i);
             if(statesMap.get(adjVertex) == 1){
                 return true;
+            }else if(statesMap.get(adjVertex) == 2){
+                continue;
             }
             
             boolean isCycle = directedDFS(adjVertex, statesMap, adjVerticesMap);
