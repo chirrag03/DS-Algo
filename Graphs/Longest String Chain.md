@@ -161,7 +161,7 @@ class Solution {
     }
 }
  ```
- **Time Complexity:** O(N<sup>2</sup>)   
+ **Time Complexity:** O(N<sup>2</sup>) or exponential (TO CONFIRM THIS)  
  **Space Complexity:** O(N) i.e depth of recursion
 
  
