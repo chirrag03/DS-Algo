@@ -116,3 +116,103 @@ class Solution {
 - For each word in the word list, we iterate over its length to find all the intermediate words corresponding to it. Since the length of each word is M and we have N words, the total number of iterations the algorithm takes to create all_combo_dict is 26xM×N. Additionally, forming each of the intermediate word takes O(M) time because of the substring operation used to create the new string.  
 - Breadth first search in the worst case might go to each of the N words. For each word, we need to do bfs to check if a longest path exists starting from that word. As a result, the time complexity of BFS traversal would also be O(N<sup>2</sup>)  
 
+
+ ### Recursive Solutioning:
+ 
+ ```java
+ class Solution {
+    public int longestStrChain(String[] words) {
+        
+        List<String> wordList = Arrays.stream(words).collect(Collectors.toList());
+        
+        Map<String, Integer> map = new HashMap<>();
+        for(String currWord : wordList){
+            map.put(currWord, -1);
+        }
+        
+
+        int max = 0;        
+        for(String currWord : wordList){
+            int level = helper(currWord, map);
+            max = Math.max(max, level);
+        }
+        return max;
+        
+    }
+    
+    private int helper(String word, Map<String, Integer> map){
+    
+        int level = 1;
+        for(int i=0;i<word.length();i++){
+            String newWord = word.substring(0, i);
+            if(i+1 < word.length()){
+                newWord = newWord + word.substring(i+1, word.length());
+            }
+
+
+            if(map.containsKey(newWord)){
+                int predecessorLevel = helper(newWord, map);
+                level = Math.max(level, predecessorLevel+1);
+            }
+
+        }
+        
+        return level;
+    }
+}
+ ```
+ **Time Complexity:** O(N<sup>2</sup>)   
+ **Space Complexity:** O(N) i.e depth of recursion
+
+ 
+ 
+ ### Recursive Solutioning With Memomization:
+ 
+ ```java
+ class Solution {
+    public int longestStrChain(String[] words) {
+        List<String> wordList = Arrays.stream(words).collect(Collectors.toList());
+        
+        Map<String, Integer> map = new HashMap<>();
+        for(String currWord : wordList){
+            map.put(currWord, -1);
+        }
+        
+
+        int max = 0;        
+        for(String currWord : wordList){
+            int level = helper(currWord, map);
+            max = Math.max(max, level);
+        }
+        return max;
+        
+    }
+    
+    private int helper(String word, Map<String, Integer> map){
+    
+        if(map.get(word) != -1){
+            return map.get(word);
+        }
+        
+        int level = 1;
+        for(int i=0;i<word.length();i++){
+            String newWord = word.substring(0, i);
+            if(i+1 < word.length()){
+                newWord = newWord + word.substring(i+1, word.length());
+            }
+
+
+            if(map.containsKey(newWord)){
+                int predecessorLevel = helper(newWord, map);
+                level = Math.max(level, predecessorLevel+1);
+            }
+
+        }
+        
+        map.put(word, level);
+        return level;
+    }
+}
+ ```
+ **Time Complexity:** O(N)   
+ **Space Complexity:** O(N) i.e depth of recursion
