@@ -22,6 +22,17 @@ If two strings contain the same characters in the same positions, then the short
 Set<Integer> visited = new HashSet<>(Arrays.asList(i*n + j));
 ```  
 
+ ### Union & Intersection of Sets:
+
+```java
+//Let say we have 2 set: Set<Integer> setA and Set<Integer> setB
+
+Set<Integer> union = new HashSet<>(setA); 
+union.addAll(setB);
+
+Set<Integer> intersection = new HashSet<>(setA); 
+intersection.retainAll(setB);
+```  
 
  ### String:
 ```java
