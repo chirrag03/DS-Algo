@@ -71,6 +71,11 @@ int[] arr = new int[]{10,1};
 List<String> stringArrayList = Arrays.stream(arr)
         .mapToObj(String::valueOf).collect(Collectors.toList());
 
+//Conversion of primitive char array to list of objects
+String s = "ddefdp";
+List<Character> charArrayList = s.chars().mapToObj(c -> (char) c).collect(
+            Collectors.toList());
+        
 //Concat a list of strings
 stringArrayList.stream().collect(Collectors.joining(""))
 ```  
