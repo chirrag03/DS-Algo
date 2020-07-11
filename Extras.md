@@ -78,6 +78,11 @@ List<Character> charArrayList = s.chars().mapToObj(c -> (char) c).collect(
         
 //Concat a list of strings
 stringArrayList.stream().collect(Collectors.joining(""))
+
+
+//Convert arraylist to 2d array
+List<int[]> outputIntervals = new ArrayList<>();
+outputIntervals.toArray(new int[outputIntervals.size()][]);
 ```  
 
 
