@@ -15,6 +15,16 @@ All uppercase letters come before lower case letters. If two letters are the sam
 If two strings contain the same characters in the same positions, then the shortest string comes first.
 ```
 
+### GCD of a and b :
+```java
+// Function to return gcd of a and b 
+int gcd(int a, int b) { 
+    if (a == 0) 
+        return b; 
+    return gcd(b % a, a); 
+} 
+```
+
  ### HashSet:
 
 ```java
