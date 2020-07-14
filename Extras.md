@@ -51,6 +51,13 @@ s.substring(i)
 
 //Substring from index i (inclusive) to j (exclusive)
 s.substring(i, j)
+
+//Find the index of a char in a string str
+int index = str.indexOf('c');
+
+//Find the index of a char in a string str starting from index i (inclusive)
+int index = str.indexOf('c', i);
+
 ```  
 
 
