@@ -8,6 +8,11 @@ Your score is the sum of the points of the cards you have taken.
 
 Given the integer array cardPoints and the integer k, return the maximum score you can obtain.  
 
+**Constraints:**
+> 1 <= cardPoints.length <= 10^5  
+> 1 <= cardPoints[i] <= 10^4  
+> 1 <= k <= cardPoints.length  
+
 ### Example 1:
 ```
 Input: cardPoints = [1,2,3,4,5,6,1], k = 3
