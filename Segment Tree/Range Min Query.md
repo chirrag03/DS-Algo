@@ -218,3 +218,14 @@ public class SegmentTreeOptimised {
 }
 ```
 
+
+**NOTE:**  
+
+Last layer: N nodes 
+Pre-last layer: N/2 nodes 
+....
+
+So, we have (N) + (N/2) + (N/4)+.... = N*(1 + 1/2 + 1/4 + ...) = 2N nodes. (using gp sum formula of a/(1-r))  
+So, there is a total of 2N nodes in a segment tree.  
+
+But for an array we need to take a space of (4N + 1)
