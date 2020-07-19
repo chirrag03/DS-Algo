@@ -119,4 +119,102 @@ public class SegmentTree {
 }
 ```  
 
+**Implementation Without Using An Array**  
+```java
+class Node{
+
+  int val;
+  int start;
+  int end;
+
+  Node left;
+  Node right;
+
+  public Node(int s, int e, int v){
+    val = v;
+    start = s;
+    end = e;
+  }
+}
+
+public class SegmentTreeOptimised {
+
+  //Time: O(n)
+  private Node buildTree(int[] arr, int start, int end){
+
+    //Base case 1
+    if(start > end){
+      return null;
+    }
+
+    //Base case 2 - Leaf node
+    //value of a leaf node is the value of element in arr itself
+    if(start == end){
+      return new Node(start, end, arr[start]);
+    }
+
+    //Recursive calls on left and right to build left and right subtrees
+    int mid = (start + end) / 2;
+    Node leftSubtree = buildTree(arr, start, mid);
+    Node rightSubtree = buildTree(arr, mid+1, end);
+
+    Node root = new Node(start, end, Math.min(leftSubtree.val, rightSubtree.val)); //No need to check if left and right are null because they will always be there
+    root.left = leftSubtree;
+    root.right = rightSubtree;
+
+    return root;
+  }
+
+  //Time: O(log(n))
+  private int query(Node root, int qs, int qe){
+    if(root == null){
+      return Integer.MAX_VALUE;
+    }
+
+    //No overlap
+    if(qe < root.start || qs > root.end){
+      return Integer.MAX_VALUE;
+    }
+
+    //Complete Overlap
+    if(qs <= root.start && qe >= root.end){
+      return root.val;
+    }
+
+    //Partial Overlap
+    return Math.min(query(root.left, qs, qe), query(root.right, qs, qe));
+  }
+
+  //Time: O(log(n))
+  private void updateNode(Node root, int i, int val){
+    if(root == null){
+      return;
+    }
+
+    //No overlap
+    if(i < root.start || i > root.end){
+      return;
+    }
+
+    //Complete overlap i.e reached leaf...Only for node that need to be changed
+    if(root.start == root.end){
+      root.val += val;
+      return;
+    }
+
+    //Partial Overlap... lying in range - i is lying between start and end
+    updateNode(root.left, i, val);
+    updateNode(root.right, i, val);
+
+    //It will never be the case that left or right is null
+    root.val = Math.min(root.left.val, root.right.val);
+  }
+
+  public static void main(String[] args) {
+    SegmentTreeOptimised sg = new SegmentTreeOptimised();
+    sg.buildTree(new int[]{1,3,2,5}, 0, 3);
+  }
+
+}
+```
 
