@@ -55,6 +55,10 @@ class Solution {
             int node = curr[0];
             int dist = curr[1];
             
+            //If this vertex has been taken out of heap already, 
+            //then its shortest distance must have been stored, hence we skip this 
+            //This is required because we never update a node when we get less distance, 
+            //instead we added the node again with lesser distance
             if(shortestDistMap.containsKey(node)){
                 continue;
             }
