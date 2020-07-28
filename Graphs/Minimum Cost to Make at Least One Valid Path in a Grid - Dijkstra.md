@@ -125,7 +125,9 @@ class Solution {
     }
 }
 ```  
-**Time Complexity:** O(mn*log(mn)) as complexity of Dijkstra is E*log(E)....to be checked      
+**NOTE**: Here there will never be a path that will be longer and has less cost because movement allowed only in 4 directions. However, if a diagonal movement was allowed then what would have happened? Dijkstra would have given me the shortest path to reach the node but not with min cost. There could have been a possibility that a longer path existed that gave me mincost. Then this would have been similar to the question Shortest Path in a Grid with Obstacles Elimination.
+
+**Time Complexity:** O(mnlog(mn)) as complexity of Dijkstra is Elog(E)....to be checked      
 
 **Space Complexity:** O(mn) ....to be checked   
 
