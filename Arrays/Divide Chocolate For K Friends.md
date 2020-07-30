@@ -71,7 +71,10 @@ class Solution {
     }
     
     private boolean areKPiecesPossible(int[] nums, int K, int minSweetness) {
-        
+        // minSweetness is minimum sweetness which will allow us to cut chocolate in a way that no friend
+       // can get more at least minSweetness. Since we want maximize minSweetness, split as soon as
+       // any friend get minSweetness. In this way we can split chocolate with more number of friends by
+       // honoring the constraint(all friends will get at least minSweetness).
         int friends = 0;
         int currSum = 0;
         for(int i=0;i<nums.length;i++){
