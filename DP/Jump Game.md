@@ -67,6 +67,9 @@ class Solution {
 **Space Complexity:**  O(N)   
 
 ### Optimized Solutioning
+This approach is greedy.  
+The idea of greedy algorithm is to pick locally optimal move at each step, that will lead to globally optimal solution.  
+
 ```java
 class Solution {
     public boolean canJump(int[] nums) {
