@@ -55,7 +55,7 @@ class Solution {
 
 ### Optimized Solutioning
 This approach is greedy.  
-The idea of greedy algorithm is to pick locally. 
+The idea of greedy algorithm is to pick locally optimal move at each step, that will lead to globally optimal solution.  
 
 ```java
 class Solution {
