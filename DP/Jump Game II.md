@@ -54,6 +54,9 @@ class Solution {
 
 
 ### Optimized Solutioning
+This approach is greedy.  
+The idea of greedy algorithm is to pick locally. 
+
 ```java
 class Solution {
     public int jump(int[] nums) {
