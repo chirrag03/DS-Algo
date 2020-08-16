@@ -58,6 +58,11 @@ int index = str.indexOf('c');
 //Find the index of a char in a string str starting from index i (inclusive)
 int index = str.indexOf('c', i);
 
+//Sort characters in string
+char[] chars = str.toCharArray();
+Arrays.sort(chars);
+String sortedStr = new String(chars);
+
 ```  
 
 
