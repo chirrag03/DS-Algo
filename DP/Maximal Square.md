@@ -56,3 +56,6 @@ class Solution {
     }
 }
 ```  
+
+**Time Complexity:** O(MN)  
+**Space Complexity:**  O(MN) 
