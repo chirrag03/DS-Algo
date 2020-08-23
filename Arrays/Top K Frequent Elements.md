@@ -15,8 +15,7 @@ Output: [1,2]
 Input: nums = [1], k = 1
 Output: [1]
 ```
-`
-Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
+
 
 > **Note:**   
 > You may assume k is always valid, 1 ≤ k ≤ number of unique elements.  
