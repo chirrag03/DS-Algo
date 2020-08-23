@@ -1,4 +1,4 @@
-## Word Ladder
+## Decode String
 
 Given an encoded string, return its decoded string.
 
