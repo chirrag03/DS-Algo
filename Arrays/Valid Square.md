@@ -37,9 +37,9 @@ class Solution {
         }
         
         return  dist(p2, p3) == d && 
-            d == dist(p3, p4) && 
-            d == dist(p4, p1) && 
-            dist(p2, p4) == dist(p1, p3);
+                dist(p3, p4) == d && 
+                dist(p4, p1) == d && 
+                dist(p2, p4) == dist(p1, p3);
     }
     
     private int dist(int[] p1, int[] p2){
