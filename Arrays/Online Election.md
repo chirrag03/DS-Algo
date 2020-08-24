@@ -62,28 +62,22 @@ class TopVotedCandidate {
     }
     
     private int findFloor(int[] arr, int start, int end, int target){
-        if(target >= arr[end]){
-            return end;
+        int result = -1;
+        while(start <= end){
+            
+            int mid = (start + end) / 2;
+
+            if(target == arr[mid]){
+                return mid;
+            }else if(target > arr[mid]){
+                result = mid;
+                start = mid+1;
+            }else{
+                end = mid-1;
+            }
         }
         
-        if(target < arr[start]){
-            return -1;
-        }
-        
-        int mid = (start + end) / 2;
-        
-        // this check is placed to handle infinite loop
-        if(mid == start){
-            return mid;
-        }
-        
-        if(target == arr[mid]){
-            return mid;
-        }else if(target > arr[mid]){
-            return findFloor(arr, mid, end, target);
-        }else{
-            return findFloor(arr, start, mid-1, target);
-        }
+        return result;
     }
 }
 
