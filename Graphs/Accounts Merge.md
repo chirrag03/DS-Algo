@@ -45,7 +45,6 @@ class Solution {
         for(List<String> account : accounts){
             String name = account.get(0);
             
-            Set<Integer> foundUUIDset = new HashSet<>();
             for(int i=1;i<account.size();i++){
                 String email = account.get(i);
                 emailNameMap.put(email, name);
