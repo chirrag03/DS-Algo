@@ -61,8 +61,6 @@ class Solution {
     public String stoneGameIII(int[] stoneValue) {
         
         int n = stoneValue.length;
-        storage = new Integer[n];
-        Arrays.fill(storage, Integer.MIN_VALUE);
         
         int[] prefixSum = new int[n+1];
         int sum = 0;
@@ -70,6 +68,9 @@ class Solution {
             sum += stoneValue[i];
             prefixSum[i] = sum;
         }
+        
+        storage = new Integer[n];
+        Arrays.fill(storage, Integer.MIN_VALUE);
         
         int aliceStoneCount = stoneGameIII(stoneValue, 0, prefixSum);
         int bobStoneCount = sum - aliceStoneCount;
