@@ -33,7 +33,6 @@ class Solution {
     public int stoneGameII(int[] piles) {
         
         int n = piles.length;
-        storage = new Integer[n+1][n+1];
         
         int[] prefixSum = new int[n+1];
         int sum = 0;
@@ -41,6 +40,9 @@ class Solution {
             sum += piles[i];
             prefixSum[i] = sum;
         }
+        
+        storage = new Integer[n+1][n+1];
+        
         return stoneGameII(piles, 0, 1, prefixSum);
     }
     
