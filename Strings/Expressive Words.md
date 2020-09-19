@@ -65,39 +65,39 @@ class Solution {
             List<Character> charList = encodedResult1.charList;
             List<Integer> countList = encodedResult1.countList;
             
-            if(givenCharList.size() != charList.size()){
-                continue;
+            if(isStretchy(givenCharList, givenCountList, charList, countList)){
+                output++;
             }
             
-            boolean isStretchy = true;
-            for(int j=0;j<givenCharList.size();j++){
-            
-                if(givenCharList.get(j) != charList.get(j)){
-                    isStretchy = false;
-                    break;
-                }
-                
-                if(givenCountList.get(j) < countList.get(j)){
-                    isStretchy = false;
-                    break;
-                }
-                
-                if(givenCountList.get(j) != countList.get(j) && givenCountList.get(j) < 3){
-                    isStretchy = false;
-                    break;
-                }
-            }
-            
-            if(!isStretchy){
-                continue;
-            }
-            
-            output++;
         }
         
         return output;
     }
     
+    private boolean isStretchy(List<Character> givenCharList, List<Integer> givenCountList, 
+                               List<Character> charList, List<Integer> countList){
+        
+        if(givenCharList.size() != charList.size()){
+            return false;
+        }
+
+        for(int j=0;j<givenCharList.size();j++){
+
+            if(givenCharList.get(j) != charList.get(j)){
+                return false;
+            }
+
+            if(givenCountList.get(j) < countList.get(j)){
+                return false;
+            }
+
+            if(givenCountList.get(j) != countList.get(j) && givenCountList.get(j) < 3){
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
 ```  
 **Time Complexity:** O(N*k) where N is the total number of words and k is the max length of a word.   
