@@ -75,34 +75,35 @@ After deletion, the implicit newline characters are deleted, leaving the string 
 ```java
 class Solution {
     public List<String> removeComments(String[] source) {
-     
+        
         List<String> output = new ArrayList<>();
         
+        String result = "";
         boolean isBlock = false;
-        String res = "";
-        for(String line : source){
-            int i=0;
+        for(String line : source){    
+            int i = 0;
             while(i < line.length()){
-                if(!isBlock && i+1 < line.length() 
-                   && line.charAt(i) == '/' && line.charAt(i+1) == '*'){
-                    isBlock = true;     
-                    i++;
-                }else if(isBlock && i+1 < line.length() 
-                         && line.charAt(i) == '*' && line.charAt(i+1) == '/'){
-                    isBlock = false;   
-                    i++;
-                }else if(!isBlock && i+1 < line.length() 
-                         && line.charAt(i) == '/' && line.charAt(i+1) == '/'){
-                    break;
-                }else if(!isBlock){
-                    res += line.charAt(i);
+                if(!isBlock){
+                    if((i+1) < line.length() && line.charAt(i) == '/' && line.charAt(i+1) == '*'){
+                        isBlock = true;
+                        i++;
+                    }else if((i+1) < line.length() && line.charAt(i) == '/' && line.charAt(i+1) == '/'){
+                        break;
+                    }else{
+                        result += line.charAt(i);
+                    }
+                }else{
+                    if((i+1) < line.length() && line.charAt(i) == '*' && line.charAt(i+1) == '/'){
+                        isBlock = false;
+                        i++;
+                    }
                 }
                 i++;
             }
             
-            if(!isBlock && res.length() > 0){
-                output.add(res);
-                res = "";
+            if(!isBlock && result.length() > 0){
+                output.add(result);
+                result = "";
             }
         }
         
