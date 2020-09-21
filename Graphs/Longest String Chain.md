@@ -144,11 +144,7 @@ class Solution {
     
         int level = 1;
         for(int i=0;i<word.length();i++){
-            String newWord = word.substring(0, i);
-            if(i+1 < word.length()){
-                newWord = newWord + word.substring(i+1, word.length());
-            }
-
+            String newWord = word.substring(0, i) + word.substring(i+1, word.length());;
 
             if(map.containsKey(newWord)){
                 int predecessorLevel = helper(newWord, map);
@@ -196,12 +192,8 @@ class Solution {
         
         int level = 1;
         for(int i=0;i<word.length();i++){
-            String newWord = word.substring(0, i);
-            if(i+1 < word.length()){
-                newWord = newWord + word.substring(i+1, word.length());
-            }
-
-
+            String newWord = word.substring(0, i) + word.substring(i+1, word.length());
+            
             if(map.containsKey(newWord)){
                 int predecessorLevel = helper(newWord, map);
                 level = Math.max(level, predecessorLevel+1);
