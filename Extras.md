@@ -1,5 +1,9 @@
 ## Extras
 
+### What is the complexity of  T(n) = 2T(n - 1) + C
+https://www.quora.com/What-is-the-complexity-of-T-n-2T-n-1-+-C    
+
+
 
 ### To keep a track of visited cells in a 2D array:
 ```
